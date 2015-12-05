@@ -10,6 +10,8 @@ html, body, #app {
 	display: block;
 	width: 100%;
 	height: 100%;
+  position: fixed;
+  top: 100px;
 }
 
 .width-80, .display-area {
@@ -50,14 +52,19 @@ html, body, #app {
 
 #search-box {
 	width: 100%;
+  position: fixed;
+  height: 100px;
+  z-index: 9999;
 }
 #search-box input {
 	width: 100%;
 	font-size: 2em;
 	line-height: 2em;
+  height: 100px;
 	border: none;
 	border-bottom: 1px solid #39a788;
 	padding: 0.3em;
+  box-sizing: border-box;
 	/* Remove input highlight on focus */
 	outline: none;
 }
@@ -69,6 +76,7 @@ html, body, #app {
 }
 .names-list li {
   padding: 1em;
+  box-sizing: border-box;
   font-size: 1.4em;
   cursor: pointer;
   border-bottom: 1px rgba(44, 44, 44, 0.21) solid;
@@ -102,6 +110,7 @@ html, body, #app {
 #info {
 	text-align: center;
 	padding: 1em;
+  box-sizing: border-box;
 	min-height: 200px;
 }
 
@@ -112,6 +121,7 @@ div#answer img{
 div#tips {
 	font-size: 1.7em;
   padding: 1em;
+  box-sizing: border-box;
 }
 
 button#questionBtn {
@@ -139,16 +149,18 @@ button#questionBtn:hover {
   	width: 100%;
   	float: none;
   }
-
+  #photo-list {
+    display: none;
+  }
   #list-menu {
   	display: block;
   	width: 100%;
   	height: auto;
   	float: none;
   }
-
   .names-list li{
   	padding: 10px;
+    box-sizing: border-box;
     font-size: 1.2em;
     height: auto;
     display: inline-block;
@@ -157,10 +169,6 @@ button#questionBtn:hover {
   }
 
   .names-list img {
-  	height: auto;
-  }
-
-  #photo-list {
   	height: auto;
   }
 }
@@ -174,6 +182,9 @@ button#questionBtn:hover {
   	display: block;
   	width: 100%;
   	height: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 70px;
   }
   #list-menu.activated li {
   	display: block;
@@ -182,9 +193,20 @@ button#questionBtn:hover {
   	border-bottom: 1px #fff solid;
   	padding: 1em;
   }
+  #search-box {
+    height: 70px;
+  }
+  #search-box input {
+    position: fixed;
+    z-index: 99;
+    height: 70px;
+  }
   /*Hide pictures when on phone*/
   #photo-list {
   	display: none;
+  }
+  .fullscreen {
+    top: 70px;
   }
   .display-area {
   	width: 100%;
