@@ -11,26 +11,33 @@ Note: The access token for foursquare is currently working for the url: http://l
 To get your own access token, use this url:
 https://foursquare.com/oauth/authenticate?redirect_uri=[redirectURL]&client_id=[clientID]&request_type=token
 
+## APIs used:
+### Foursquare
+1. <a href="https://developer.foursquare.com/docs/venues/search">Search Venues</a>
+2. <a href="https://developer.foursquare.com/docs/venues/tips">Tips from a Venue</a>
+
+### Yes Or No API 
+<a href="http://yesno.wtf/">Yes No</a>
+
 <h1> Project Overview</h1>
 <a href="https://github.com/udacity/fend-office-hours/blob/master/Javascript%20Design%20Patterns/P5%20Project%20Overview/README.md">Reference</a>
 <h1>Office Hours Link</h1>
 <hr>
 Link to the Office Hours: <a href="https://plus.google.com/u/0/events/cb3105iclo5391h3bfg805m9k3k?authkey=CKG-_pG1hN_cmwE">P5 and P6</a><br>
 
-<a href="../../Javascript Testing/P6 Overview/">Link to P6 Overview</a>
 <h1><u>Project 5 Neighborhood Map Example<u></h1>
 <hr>
 Let's talk a little bit about the basic functionality of our map! First and foremost we need to make sure we include the 3 main components A Search bar, a list view, and a map. Notice our map has markers and the list view contains the names of each of the locations on our map.
 
-<img src="images/basic-neighborhood-map.png" />
+<img src="https://github.com/udacity/fend-office-hours/raw/master/Javascript%20Design%20Patterns/P5%20Project%20Overview/images/basic-neighborhood-map.png" />
 
 Now for basic functionality we need to make sure to that our search filters BOTH our list view and our map markers. We are only looking for a basic search functionality, so it only needs to be able to search by name. Feel free though to modify the filter to search for location type or other information. 
 
-<img src="images/Search-Function-Map.gif"/>
+<img src="https://github.com/udacity/fend-office-hours/raw/master/Javascript%20Design%20Patterns/P5%20Project%20Overview/images/Search-Function-Map.gif"/>
 
 Along with our list and markers filtering based on our search bar, they should also both be clickable. When we click a list item it should move towards the marker and open an info window. Clicking on a marker should also open an info window. The content of the info window is up to you but it would be a good chance to include an API! Notice as well that our markers animate to draw our users attention to that marker. 
 
-<img src="images/List-Click-Marker-Click.gif" /> 
+<img src="https://github.com/udacity/fend-office-hours/raw/master/Javascript%20Design%20Patterns/P5%20Project%20Overview/images/List-Click-Marker-Click.gif" /> 
 
 
 <h2><u>The Rubric</u></h2>
