@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-	<div id="search-box">
-		<!--  Query value updates on keyup -->
-		<input placeholder="I want to go to..." data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
-	</div>
-	<div class="fullscreen">
-		<div class="list-menu">
-			<ul class="names-list" data-bind="foreach: visibleMarkers">
-				<li data-bind="text: title, click: $parent.highlightMarker"></li>
-			</ul>
+	<div id="app">
+		<div id="search-box">
+			<!--  Query value updates on keyup -->
+			<input placeholder="I want to go to..." data-bind="value: query, valueUpdate: 'keyup', click: activateList" autocomplete="off">
 		</div>
+		<div class="fullscreen">
+			<div id="list-menu">
+				<ul class="names-list" data-bind="foreach: visibleMarkers">
+					<li data-bind="text: title, click: $parent.highlightMarker"></li>
+				</ul>
+			</div>
 
-		<div class="display-area">
-			<!-- ko if: currentPlaceImages().length -->
-        <ul id="photo-list" data-bind="foreach: currentPlaceImages">
-        	<li><img src="" data-bind="attr: {src: $data}"></li>
-        </ul>
-    	<!-- /ko -->
-			<div id="map"></div>
+			<div class="display-area">
+				<!-- ko if: currentPlaceImages().length -->
+	        <ul id="photo-list" data-bind="foreach: currentPlaceImages">
+	        	<li><img src="" data-bind="attr: {src: $data}"></li>
+	        </ul>
+	    	<!-- /ko -->
+				<div id="map"></div>
+			</div>
 		</div>
 	</div>
-
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr5pCJRLFEiZVfdRy-1nRr4e0jkdSRX1c">
-  </script>
 	<script type="text/javascript" src="bower_components/knockout/dist/knockout.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr5pCJRLFEiZVfdRy-1nRr4e0jkdSRX1c&callback=googleSuccess" onerror="googleError()">
+  </script>
 </body>
 </html>

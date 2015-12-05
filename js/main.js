@@ -1,7 +1,6 @@
-/*global ko, Router */
-(function () {
+function googleSuccess() {
   'use strict';
-
+  console.log('m here');
   // List of markers to display on map
   var markers = [
     {
@@ -83,6 +82,13 @@
       ]
     }
   ];
+
+  /**
+   * Helper function to check if element has certain class
+   */
+  function hasClass(element, className) {
+    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+  }
 
   /**
    * Represents a single map marker
@@ -225,6 +231,13 @@
      */
     this.highlightMarker = function(marker) {
       var self = vmCtx;
+
+      // Check if name list is shown, hide it.
+      // This hides the fullscreen list of places names when it's on mobile
+      var nameList = document.getElementById('list-menu');
+      if(hasClass(nameList, 'activated')) {
+        nameList.className = '';
+      }
       var content = '<div id="info"><h1>' + marker.title + '</h1>'+
         '<div id="tips"></div><div id="error"></div>'+'</div>';
       vmCtx.infowindow.setContent(content);
@@ -288,6 +301,15 @@
     // Keep track of visible markers
     this.visibleMarkers = this.markers;
 
+    // Show List of names
+    this.activateList = function() {
+      var element = document.getElementById('list-menu');
+      console.log(element.style);
+      if(!element.style.display) {
+        element.className = 'activated';
+      }
+    }
+
     // Value of search query
     this.query = ko.observable('');
 
@@ -315,4 +337,12 @@
   // Bind a new instance of our view model to the page
   var viewModel = new ViewModel(markers || []);
   ko.applyBindings(viewModel);
-}());
+  console.log(viewModel);
+}
+
+function googleError(){
+  var app = document.getElementById('app');
+  app.innerHTML = '<div class="error">'+ '<p>Unfortunately we\'re unable to load the map. '+
+    'Here\'s some cute cats instead! </p>' +
+    '<img src="img/cutecat.jpg"></div>';
+}

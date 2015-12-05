@@ -1,4 +1,4 @@
-html, body {
+html, body, #app {
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -18,7 +18,7 @@ html, body {
 	height: 100%;
 	float: right;
 }
-.width-20, .list-menu {
+.width-20, #list-menu {
 	display: block;
 	width: 20%;
 	height: 100%;
@@ -126,13 +126,21 @@ button#questionBtn:hover {
 	background-color: #215647;
 }
 
-@media (max-width: 1200px) {
+.error {
+	text-align: center;
+}
+.error p {
+	font-size: 1.8em;
+	color: #fff;
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
   .display-area {
   	width: 100%;
   	float: none;
   }
 
-  .list-menu {
+  #list-menu {
   	display: block;
   	width: 100%;
   	height: auto;
@@ -141,7 +149,7 @@ button#questionBtn:hover {
 
   .names-list li{
   	padding: 10px;
-    font-size: 1em;
+    font-size: 1.2em;
     height: auto;
     display: inline-block;
     border: 1px white solid;
@@ -154,5 +162,43 @@ button#questionBtn:hover {
 
   #photo-list {
   	height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #list-menu {
+  	display: none;
+  	background-color: #39A788;
+  }
+  #list-menu.activated {
+  	display: block;
+  	width: 100%;
+  	height: 100%;
+  }
+  #list-menu.activated li {
+  	display: block;
+  	width: 100%;
+  	border: none;
+  	border-bottom: 1px #fff solid;
+  	padding: 1em;
+  }
+  /*Hide pictures when on phone*/
+  #photo-list {
+  	display: none;
+  }
+  .display-area {
+  	width: 100%;
+  	height: 100%;
+  }
+  div#tips {
+    font-size: 1em;
+    padding:5px;
+  }
+  #info {
+  	padding: 5px;
+    min-height: auto;
+  }
+  #info h1 {
+  	font-size: 1.3em;
   }
 }
